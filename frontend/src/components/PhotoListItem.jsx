@@ -1,17 +1,33 @@
-
-import React from 'react';
-
 import '../styles/PhotoListItem.scss';
+import React from 'react';
+import PhotoFavButton from './PhotoFavButton';
 
-const PhotoListItem = () => {
-  /* Insert React */
-}
+// import '../styles/PhotoListItem.scss';
 
-PhotoListItem.defaultProps = {
-  username: 'Jacob',
-  imageSource: `${process.env.PUBLIC_URL}/Image.jpg`,
-  id: 1,
-  hideUserName: false,
-}
+const PhotoListItem = (props) => {
 
-export default PhotoListItem
+  const {setShow, modalPhoto, setModalPhoto, photo,favList, setFavList, id, setisFavPhotoExist } = props;
+
+
+  const handleClick = function(id) {
+    setShow(true);
+    setModalPhoto(photo);
+    console.log(modalPhoto);
+  };
+
+  return (
+    <article className="photo-list--item" key={id} >
+      <PhotoFavButton
+        id={id}
+        favList={favList}
+        setFavList={setFavList}
+        setisFavPhotoExist={setisFavPhotoExist}
+      />
+      <img onClick={() => handleClick(photo)} className="photo-list--image" src={props.src} alt="" />
+    </article>
+  );
+};
+
+
+
+export default PhotoListItem;
