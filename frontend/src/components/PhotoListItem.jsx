@@ -23,7 +23,7 @@ const PhotoListItem = (props) => {
         setisFavPhotoExist={setisFavPhotoExist}
         dispatch={dispatch}
       />
-      <img onClick={() => dispatch({type: "setShow", photo })} className="photo-list--image" src={props.src} alt="" />
+      <img onClick={() => dispatch({type: "setShow", id })} className="photo-list--image" src={props.src} alt="" />
       <div className='photo-list--user-details'>
         <img className='photo-list--user-profile' src={photo.user.profile}/>
         <div>

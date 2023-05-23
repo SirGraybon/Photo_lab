@@ -7,10 +7,11 @@ import PhotoFavButton from '../components/PhotoFavButton';
 export const PhotoDetailsModal = (props) => {
   
   const { show, setShow, modalPhoto, setModalPhoto, favList, setFavList, photos, setisFavPhotoExist, isFavPhotoExist, dispatch } = props;
-  console.log(modalPhoto.similar_photos)
+  // console.log(modalPhoto.similar_photos)
 
   return (
     <div className='photo-details-modal'>
+
       <button onClick={() => dispatch({type: "setHide", })} className='photo-details-modal--close-button'>
         <svg width="24" height="24" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g clipPath="url(#clip0_428_287)">
@@ -24,6 +25,8 @@ export const PhotoDetailsModal = (props) => {
           </defs>
         </svg>
       </button>
+    
+
       <div className='photo-details-modal--top-bar'>
       <div>
 
@@ -31,20 +34,20 @@ export const PhotoDetailsModal = (props) => {
         id={modalPhoto.id}
         favList={favList}
         dispatch={dispatch}
-
         setisFavPhotoExist={setisFavPhotoExist}
         />
-      <img src={modalPhoto.urls.regular} alt="" />
+      <img className='photo-details-modal--image' src={modalPhoto.urls.full} alt="" />
 
-        </div>
-      </div>
       <div className='photo-list--user-details'>
-        <img className='photo-list--user-profile' src="https://media.licdn.com/dms/image/C4E03AQELTprgRF7ZDQ/profile-displayphoto-shrink_200_200/0/1652556608202?e=1689811200&v=beta&t=Yy-NrG7kpW0LYhNyraSejOfOIJZ9DFF_qmLleLEyBMM"/>
+        <img className='photo-list--user-profile' src={modalPhoto.user.profile}/>
         <div>
         <div>
           {modalPhoto.user.username}
         </div>
         {modalPhoto.location.city}, {modalPhoto.location.country}
+        </div>
+      </div>
+       
         </div>
       </div>
 

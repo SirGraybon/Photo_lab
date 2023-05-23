@@ -17,4 +17,12 @@
   color: #111;
   text-underline-position: auto;
   margin-left: 24px;
+  transition: 0.1s;
+
+  
+  &:hover {
+    color: #9c0000;
+    cursor: pointer;
+    
+  }
 }

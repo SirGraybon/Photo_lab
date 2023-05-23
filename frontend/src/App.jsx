@@ -3,8 +3,7 @@ import { useEffect, useReducer } from 'react';
 import './App.scss';
 import HomeRoute from './routes/HomeRoute';
 import PhotoDetailsModal from './routes/PhotoDetailsModal';
-import photoData from './mocks/photos.json';
-import topicData from './mocks/topics.json';
+
 
 // import useApplicationData from './hooks/useApplicationData';
 
@@ -31,14 +30,17 @@ const App = () => {
   };
 
   const reducer = function(state, action) {
-    // console.log(action.type);
-    // console.log(action.id);
+
     switch (action.type) {
       case "setShow":
+        let photoIndexer = state.photos.find(photo => {
+          return photo.id === action.id
+        })
+        console.log(photoIndexer)
         return {
           ...state,
           show: true,
-          modalPhoto: action.photo
+          modalPhoto: photoIndexer
         };
       case "setHide":
         return {

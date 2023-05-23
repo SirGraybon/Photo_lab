@@ -16,11 +16,9 @@ const PhotoList = (props) => {
           key={photo.id}
           photo={photo}
           modalPhoto={modalPhoto}
-          setModalPhoto={setModalPhoto}
           id={photo.id}
           src={photo.urls.regular}
           favList={favList}
-          setFavList={setFavList}
           setisFavPhotoExist={setisFavPhotoExist}
           dispatch={dispatch}
 

@@ -13,6 +13,10 @@
   width: 95%;
   overflow-y: scroll;
   border-radius: 12px;
+
+  &::-webkit-scrollbar{
+    display:  none;
+  }
 }
 
 .photo-details-modal--close-button {
@@ -36,6 +40,8 @@
 .photo-details-modal--image {
   max-width: 95%;
   border-radius: 8px;
+  // min-height: 500px;
+  max-height: 700px;
 }
 
 .photo-details-modal--top-bar {
@@ -60,3 +66,4 @@
   margin-bottom: 24px;
   width: 90%;
 }
+

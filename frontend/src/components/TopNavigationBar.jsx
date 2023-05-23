@@ -5,14 +5,15 @@ import TopicList from './TopicList';
 import FavBadge from './FavBadge';
 
 const TopNavigation = (props) => {
- const {isFavPhotoExist, topics, dispatch} = props
+ const {isFavPhotoExist, topics, dispatch} = props 
 
-
- 
+ const refreshPage = function(){
+  window.location.reload();
+}
   
   return (
     <div className="top-nav-bar">
-      <span className="top-nav-bar--logo">PhotoLabs</span>
+      <span onClick={refreshPage} className="top-nav-bar--logo">PhotoLabs</span>
       <TopicList topics={topics} dispatch={dispatch}/>
       <FavBadge isFavPhotoExist={isFavPhotoExist} />
     </div>
