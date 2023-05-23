@@ -5,13 +5,6 @@ import HomeRoute from './routes/HomeRoute';
 import PhotoDetailsModal from './routes/PhotoDetailsModal';
 // import useApplicationData from './hooks/useApplicationData';
 
-
-
-
-
-
-
-
 const App = () => {
 
 
@@ -32,9 +25,9 @@ const App = () => {
     switch (action.type) {
       case "setShow":
         let photoIndexer = state.photos.find(photo => {
-          return photo.id === action.id
-        })
-        console.log(photoIndexer)
+          return photo.id === action.id;
+        });
+        console.log(photoIndexer);
         return {
           ...state,
           show: true,
@@ -80,13 +73,9 @@ const App = () => {
   };
 
   const [state, dispatch] = useReducer(reducer, defaultState);
-  // console.log("favList: ", state.favList);
-  // console.log("ModalPhoto: ", state.modalPhoto);
+
   console.log("SelectedTopic: ", state.selectedTopic);
   state.isFavPhotoExist = state.favList.length > 0;
-
-
-  
 
   useEffect(() => {
     fetch('http://localhost:8001/api/photos').then(data => data.json()).then(data => dispatch({ type: "generatePhotos", data }));
@@ -96,12 +85,11 @@ const App = () => {
     fetch('http://localhost:8001/api/topics').then(data => data.json()).then(data => dispatch({ type: "generateTopics", data }));
   }, []);
   useEffect(() => {
-    if(state.selectedTopic !== "") {
+    if (state.selectedTopic !== "") {
 
       fetch(`http://localhost:8001/api/topics/photos/${state.selectedTopic}`).then(data => data.json()).then(data => dispatch({ type: "generatePhotos", data }));
     }
   }, [state.selectedTopic]);
-
 
   return (
     <div className="App">

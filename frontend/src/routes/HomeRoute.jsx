@@ -2,20 +2,15 @@ import React from 'react';
 import PhotoList from '../components/PhotoList';
 import TopNavigation from '../components/TopNavigationBar';
 import '../styles/HomeRoute.scss';
-import { useState } from 'react';
-
-
 
 const HomeRoute = (props) => {
-  const { show, setShow, modalPhoto, setModalPhoto, favList, setFavList, photos, setisFavPhotoExist, isFavPhotoExist, dispatch, topics } = props;
-
-
+  const { modalPhoto, setModalPhoto, favList, setFavList, photos, setisFavPhotoExist, isFavPhotoExist, dispatch, topics } = props;
 
   return (
     <div className="home-route">
       <TopNavigation
         isFavPhotoExist={isFavPhotoExist}
-        topics = {topics}
+        topics={topics}
         dispatch={dispatch}
       />
       <PhotoList
