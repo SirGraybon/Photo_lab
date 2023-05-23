@@ -3,20 +3,18 @@ import { useEffect, useReducer } from 'react';
 import './App.scss';
 import HomeRoute from './routes/HomeRoute';
 import PhotoDetailsModal from './routes/PhotoDetailsModal';
-
-
 // import useApplicationData from './hooks/useApplicationData';
 
+
+
+
+
+
+
+
 const App = () => {
-  /////STATEs//////////////////////
-  /////USING
-  // const photos = [...photoData];
-  // const [isFavPhotoExist, setisFavPhotoExist] = useState(false);
-  // const [favList, setFavList] = useState([]);
-  // const [show, setShow] = useState(false);
-  // console.log("favList: ", favList);
-  // const [modalPhoto, setModalPhoto] = useState(null);
-  ////////////////////////////////////////////////////
+
+
   ////////////////REDUCER/////////////////
 
   const defaultState = {
@@ -86,6 +84,9 @@ const App = () => {
   // console.log("ModalPhoto: ", state.modalPhoto);
   console.log("SelectedTopic: ", state.selectedTopic);
   state.isFavPhotoExist = state.favList.length > 0;
+
+
+  
 
   useEffect(() => {
     fetch('http://localhost:8001/api/photos').then(data => data.json()).then(data => dispatch({ type: "generatePhotos", data }));
