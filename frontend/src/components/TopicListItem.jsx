@@ -4,20 +4,14 @@ import React from 'react';
 import '../styles/TopicListItem.scss';
 
 const TopicListItem = (props) => {
+  const {value, dispatch, id} = props
   return (
-
-    <a className="topic-list--item"
-
-      formAction={props.link}
-    >
-      {props.value}
+    <a onClick={() => dispatch({type: "filterTopic", topic: id })} className="topic-list--item">
+      {value}
     </a>
+
   );
 };
 
-// TopicListItem.defaultProps = {
-//   id: 1,
-//   label: 'Nature',
-//   link: 'link placeholder'
-// };
+
 export default TopicListItem;

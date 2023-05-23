@@ -7,7 +7,7 @@ import { useState } from 'react';
 
 
 const HomeRoute = (props) => {
-  const { show, setShow, modalPhoto, setModalPhoto, favList, setFavList, photos, setisFavPhotoExist, isFavPhotoExist } = props;
+  const { show, setShow, modalPhoto, setModalPhoto, favList, setFavList, photos, setisFavPhotoExist, isFavPhotoExist, dispatch, topics } = props;
 
 
 
@@ -15,16 +15,17 @@ const HomeRoute = (props) => {
     <div className="home-route">
       <TopNavigation
         isFavPhotoExist={isFavPhotoExist}
+        topics = {topics}
+        dispatch={dispatch}
       />
       <PhotoList
         setisFavPhotoExist={setisFavPhotoExist}
         modalPhoto={modalPhoto}
         setModalPhoto={setModalPhoto}
-        show={show}
-        setShow={setShow}
         photos={photos}
         favList={favList}
         setFavList={setFavList}
+        dispatch={dispatch}
       />
 
     </div>

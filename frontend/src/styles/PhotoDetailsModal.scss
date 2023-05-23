@@ -2,12 +2,15 @@
   // visibility: hidden;
   background-color: white;
   box-shadow: 0 0 0 50vmax rgba(0,0,0,.5);
-  position: absolute;
-  top: 55%;
+  position: fixed;
+  top: 50%;  
   left: 50%;
-  transform: translate(-50%, -40%);
-  height: 80%;
-  width: 55%;
+  z-index: 10040;
+  transform: translate(-50%, -50%);
+  overflow: auto;
+  overflow-y: auto;
+  height: 95%;
+  width: 95%;
   overflow-y: scroll;
   border-radius: 12px;
 }
@@ -38,7 +41,7 @@
 .photo-details-modal--top-bar {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   margin: 16px;
   margin-top: 8px;
   align-items: center;

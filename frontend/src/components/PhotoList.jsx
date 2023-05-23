@@ -7,7 +7,8 @@ import PhotoListItem from './PhotoListItem';
 
 const PhotoList = (props) => {
 
-  const { show, setShow, modalPhoto, setModalPhoto, favList, setFavList, photos, setisFavPhotoExist } = props;
+  const { show, setShow, modalPhoto, setModalPhoto, favList, setFavList, photos, setisFavPhotoExist, dispatch } = props;
+
   return (
     <ul className="photo-list">
       {photos.map(photo => {
@@ -16,13 +17,12 @@ const PhotoList = (props) => {
           photo={photo}
           modalPhoto={modalPhoto}
           setModalPhoto={setModalPhoto}
-          show={show}
-          setShow={setShow}
           id={photo.id}
-          src={photo.urls.thumb}
+          src={photo.urls.regular}
           favList={favList}
           setFavList={setFavList}
           setisFavPhotoExist={setisFavPhotoExist}
+          dispatch={dispatch}
 
         />);
       })

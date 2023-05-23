@@ -5,23 +5,13 @@ import '../styles/PhotoDetailsModal.scss';
 import PhotoFavButton from '../components/PhotoFavButton';
 
 export const PhotoDetailsModal = (props) => {
+  
+  const { show, setShow, modalPhoto, setModalPhoto, favList, setFavList, photos, setisFavPhotoExist, isFavPhotoExist, dispatch } = props;
+  console.log(modalPhoto.similar_photos)
 
-  const handleClick = function() {
-    console.log("show");
-    setShow(false);
-
-  };
-  const { favList, setFavList, setisFavPhotoExist, setShow, modalPhoto } = props;
-  console.log(modalPhoto);
   return (
     <div className='photo-details-modal'>
-      <PhotoFavButton
-id={modalPhoto.id}
-        favList={favList}
-        setFavList={setFavList}
-        setisFavPhotoExist={setisFavPhotoExist}
-      />
-      <button onClick={handleClick} className='photo-details-modal--close-button'>
+      <button onClick={() => dispatch({type: "setHide", })} className='photo-details-modal--close-button'>
         <svg width="24" height="24" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g clipPath="url(#clip0_428_287)">
             <path d="M14.0625 3.9375L3.9375 14.0625" stroke="black" strokeLinecap="round" strokeLinejoin="round" />
@@ -34,8 +24,44 @@ id={modalPhoto.id}
           </defs>
         </svg>
       </button>
+      <div className='photo-details-modal--top-bar'>
+      <div>
+
+      <PhotoFavButton
+        id={modalPhoto.id}
+        favList={favList}
+        dispatch={dispatch}
+
+        setisFavPhotoExist={setisFavPhotoExist}
+        />
       <img src={modalPhoto.urls.regular} alt="" />
-      {/* <PhotoList photos={photos} /> */}
+
+        </div>
+      </div>
+      <div className='photo-list--user-details'>
+        <img className='photo-list--user-profile' src="https://media.licdn.com/dms/image/C4E03AQELTprgRF7ZDQ/profile-displayphoto-shrink_200_200/0/1652556608202?e=1689811200&v=beta&t=Yy-NrG7kpW0LYhNyraSejOfOIJZ9DFF_qmLleLEyBMM"/>
+        <div>
+        <div>
+          {modalPhoto.user.username}
+        </div>
+        {modalPhoto.location.city}, {modalPhoto.location.country}
+        </div>
+      </div>
+
+      <div className='photo-details-modal--images'>
+
+      <PhotoList
+        setisFavPhotoExist={setisFavPhotoExist}
+        modalPhoto={modalPhoto}
+        setModalPhoto={setModalPhoto}
+        show={show}
+        setShow={setShow}
+        photos={modalPhoto.similar_photos}
+        favList={favList}
+        setFavList={setFavList}
+        dispatch={dispatch}
+        />
+        </div>
     </div>);
 
 };
